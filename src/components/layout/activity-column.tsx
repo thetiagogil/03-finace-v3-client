@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDeleteTxById } from "../../api/tx-api";
 import { TxModel } from "../../models/tx.model";
 import { AddTxModal } from "../modals/add-tx-modal";
-import { DataCard } from "../shared/data-card";
 import { Flex } from "../shared/flex";
 import { ActivityItemCard } from "./activity-item-card";
 
@@ -40,7 +39,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
   return (
     <>
       {hasData && (
-        <DataCard>
+        <Flex>
           <Flex y fullwidth gap3>
             {Object.entries(groupedTransactions).map(([date, transactionsArray]) => (
               <Flex y gap1 key={date}>
@@ -68,7 +67,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
               />
             )}
           </Flex>
-        </DataCard>
+        </Flex>
       )}
     </>
   );

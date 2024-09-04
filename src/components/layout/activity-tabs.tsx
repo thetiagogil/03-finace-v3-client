@@ -16,7 +16,7 @@ export const ActivityTabs = ({ status }: ActivityTabsProps) => {
   const isLoading = transactionsLoading;
 
   return (
-    <Flex y>
+    <Flex y gap3>
       <ActivityFilters userId={userId} status={status} />
       {isLoading ? <Loading /> : <ActivityColumn transactions={transactions} />}
     </Flex>
