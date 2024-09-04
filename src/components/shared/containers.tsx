@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { MAIN_WIDTH, NAVBAR_HEIGHT } from "../../utils/constants";
 import { Navbar } from "../navigation/navbar";
-import { SidebarDesktop } from "../navigation/sidebar-desktop";
 import { Flex } from "../shared/flex";
 
 type Props = {
@@ -29,7 +28,6 @@ export const AuthPageContainer = ({ children }: Props) => {
     <Flex y fullwidth fullheight sx={{ bgcolor: "neutral.100", minHeight: "100vh", overflow: "hidden" }}>
       <Navbar />
       <Flex x fullwidth sx={{ height: `calc(100vh - ${NAVBAR_HEIGHT}px)`, overflowX: "hidden" }}>
-        <SidebarDesktop />
         <Flex
           x
           xc
@@ -40,7 +38,7 @@ export const AuthPageContainer = ({ children }: Props) => {
             height: "100%"
           }}
         >
-          <Flex y sx={{ height: "100%", width: { xs: "100%", lg: MAIN_WIDTH }, p: 1 }}>
+          <Flex y sx={{ height: "100%", width: { xs: "100%", lg: MAIN_WIDTH }, pt: 2 }}>
             {children}
           </Flex>
         </Flex>
