@@ -4,6 +4,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { IoPersonCircle } from "react-icons/io5";
 import { PiSignOutThin, PiUserThin } from "react-icons/pi";
 import { AuthContext } from "../../contexts/auth.context";
+import { BUTTON_BORDER_RADIUS } from "../../utils/constants";
 import { ProfileDrawer } from "../navigation/profile-drawer";
 import { Flex } from "../shared/flex";
 
@@ -23,10 +24,19 @@ export const NavbarDropdown = () => {
   return (
     <>
       <Dropdown open={open} onOpenChange={(_event, isOpen) => handleOpenChange({ isOpen })}>
-        <MenuButton variant="plain" sx={{ py: 0, px: 1, transition: "0.3s", "&:hover": { bgcolor: "primary.900" } }}>
+        <MenuButton
+          variant="plain"
+          sx={{
+            py: 0,
+            px: 1,
+            borderRadius: BUTTON_BORDER_RADIUS,
+            transition: "0.3s",
+            "&:hover": { bgcolor: "neutral.300" }
+          }}
+        >
           <Flex x xc yc>
-            <IoPersonCircle size={30} color="white" />
-            {!open ? <IoIosArrowDown color="white" /> : <IoIosArrowUp color="white" />}
+            <IoPersonCircle size={30} />
+            {!open ? <IoIosArrowDown /> : <IoIosArrowUp />}
           </Flex>
         </MenuButton>
         <Menu placement="bottom-end">

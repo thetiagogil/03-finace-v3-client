@@ -2,7 +2,7 @@ import { Grid, Link, List, ListItem, Stack, Typography } from "@mui/joy";
 import { useContext } from "react";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth.context";
-import { MAIN_WIDTH, SIDEBAR_WIDTH } from "../../utils/constants";
+import { BUTTON_BORDER_RADIUS, MAIN_WIDTH, SIDEBAR_WIDTH } from "../../utils/constants";
 import { linksArray } from "../arrays/links-array";
 import { SidebarMobile } from "../navigation/navbar-mobile";
 import { Flex } from "../shared/flex";
@@ -23,12 +23,10 @@ export const NavbarContent = () => {
           fullheight
           sx={{ width: { xs: "100%", lg: SIDEBAR_WIDTH }, justifyContent: { xs: "center", lg: "start" } }}
         >
-          <Typography level="title-md" sx={{ color: "neutral.50" }}>
-            FIN/ACE
-          </Typography>
+          <Typography level="title-md">FIN/ACE</Typography>
         </Flex>
       </Grid>
-      <Grid lg={8} sx={{ display: { xs: "none", lg: "block  " } }}>
+      <Grid lg={8} sx={{ display: { xs: "none", lg: "block" } }}>
         {!loadingData && (
           <List sx={{ py: 0, display: "flex", flexDirection: "row", justifyContent: "center" }}>
             {linksArray.map((link, index) => {
@@ -38,7 +36,7 @@ export const NavbarContent = () => {
                 <ListItem
                   key={index}
                   sx={{
-                    px: 2,
+                    px: 0,
                     py: 0
                   }}
                 >
@@ -50,9 +48,14 @@ export const NavbarContent = () => {
                     disabled={isDisabled}
                     sx={{
                       height: "100%",
-                      color: selected ? "primary.300" : "neutral.400",
+                      mx: 1,
+                      px: 3,
+                      bgcolor: selected ? "neutral.200" : "transparent",
+                      color: selected ? "primary.400" : "neutral.400",
+                      borderRadius: selected ? BUTTON_BORDER_RADIUS : 0,
+                      fontWeight: selected ? 600 : 400,
                       transition: "0.3s",
-                      "&:hover": { color: "primary.300" }
+                      "&:hover": { bgcolor: "neutral.200", color: "primary.400", borderRadius: BUTTON_BORDER_RADIUS }
                     }}
                   >
                     {link.title}
