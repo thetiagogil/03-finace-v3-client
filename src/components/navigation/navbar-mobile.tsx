@@ -1,10 +1,9 @@
 import { Drawer, IconButton, Typography } from "@mui/joy";
 import { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
-import { SidebarContent } from "../layout/sidebar-content";
 import { Flex } from "../shared/flex";
 
-export const SidebarMobile = () => {
+export const NavbarMobile = () => {
   const [open, setOpen] = useState(false);
   return (
     <Flex x>
@@ -17,7 +16,6 @@ export const SidebarMobile = () => {
             FIN/ACE
           </Typography>
         </Flex>
-        <SidebarContent />
       </Drawer>
     </Flex>
   );

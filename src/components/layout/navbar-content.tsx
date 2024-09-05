@@ -4,7 +4,7 @@ import { Link as ReactLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth.context";
 import { MAIN_BORDER_RADIUS, MAIN_WIDTH } from "../../utils/constants";
 import { linksArray } from "../arrays/links-array";
-import { SidebarMobile } from "../navigation/navbar-mobile";
+import { NavbarMobile } from "../navigation/navbar-mobile";
 import { Flex } from "../shared/flex";
 import { NavbarDropdown } from "./navbar-dropdown";
 
@@ -14,7 +14,7 @@ export const NavbarContent = () => {
   return (
     <Grid container sx={{ width: MAIN_WIDTH }}>
       <Grid xs={4} sx={{ display: { xs: "block", lg: "none" }, pl: 2 }}>
-        <SidebarMobile />
+        <NavbarMobile />
       </Grid>
       <Grid xs={4} lg={2}>
         <Flex x yc fullheight sx={{ justifyContent: { xs: "center", lg: "start" } }}>
