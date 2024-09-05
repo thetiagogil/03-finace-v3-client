@@ -2,7 +2,7 @@ import { Grid, Link, List, ListItem, Stack, Typography } from "@mui/joy";
 import { useContext } from "react";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth.context";
-import { BUTTON_BORDER_RADIUS, MAIN_WIDTH } from "../../utils/constants";
+import { MAIN_BORDER_RADIUS, MAIN_WIDTH } from "../../utils/constants";
 import { linksArray } from "../arrays/links-array";
 import { SidebarMobile } from "../navigation/navbar-mobile";
 import { Flex } from "../shared/flex";
@@ -47,10 +47,10 @@ export const NavbarContent = () => {
                       px: 3,
                       bgcolor: selected ? "neutral.200" : "transparent",
                       color: selected ? "primary.400" : "neutral.400",
-                      borderRadius: selected ? BUTTON_BORDER_RADIUS : 0,
+                      borderRadius: selected ? MAIN_BORDER_RADIUS : 0,
                       fontWeight: selected ? 600 : 400,
                       transition: "0.3s",
-                      "&:hover": { bgcolor: "neutral.200", color: "primary.400", borderRadius: BUTTON_BORDER_RADIUS }
+                      "&:hover": { bgcolor: "neutral.300", color: "primary.500", borderRadius: MAIN_BORDER_RADIUS }
                     }}
                   >
                     {link.title}

@@ -4,7 +4,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { IoPersonCircle } from "react-icons/io5";
 import { PiSignOutThin, PiUserThin } from "react-icons/pi";
 import { AuthContext } from "../../contexts/auth.context";
-import { BUTTON_BORDER_RADIUS } from "../../utils/constants";
+import { MAIN_BORDER_RADIUS } from "../../utils/constants";
 import { ProfileDrawer } from "../navigation/profile-drawer";
 import { Flex } from "../shared/flex";
 
@@ -31,7 +31,7 @@ export const NavbarDropdown = () => {
             px: 1,
             borderRadius: 0,
             transition: "0.3s",
-            "&:hover": { bgcolor: "neutral.300", borderRadius: BUTTON_BORDER_RADIUS }
+            "&:hover": { bgcolor: "neutral.300", borderRadius: MAIN_BORDER_RADIUS }
           }}
         >
           <Flex x xc yc>

@@ -1,5 +1,5 @@
 import { Divider, Tab, tabClasses, TabList, TabPanel, Tabs } from "@mui/joy";
-import { BUTTON_BORDER_RADIUS, MAIN_WIDTH, NAVBAR_HEIGHT } from "../../utils/constants";
+import { MAIN_BGCOLOR, MAIN_BORDER_RADIUS, MAIN_WIDTH, NAVBAR_HEIGHT } from "../../utils/constants";
 import { Flex } from "./flex";
 
 type TabsStatusProps = {
@@ -13,8 +13,8 @@ export const TabsStatus = ({ trackedTab, plannedTab }: TabsStatusProps) => {
     <Tabs
       defaultValue={0}
       sx={{
-        bgcolor: "transparent",
-        borderRadius: BUTTON_BORDER_RADIUS,
+        bgcolor: MAIN_BGCOLOR,
+        borderRadius: MAIN_BORDER_RADIUS,
         [`& .${tabClasses.root}`]: {
           color: "neutral.400",
           alignSelf: "center",
@@ -23,17 +23,14 @@ export const TabsStatus = ({ trackedTab, plannedTab }: TabsStatusProps) => {
           px: 3,
           transition: "0.3s",
           "&:hover": {
-            bgcolor: "neutral.200",
-            color: "primary.400",
-            borderRadius: BUTTON_BORDER_RADIUS
-          },
-          "&:focus": {
-            borderRadius: BUTTON_BORDER_RADIUS
+            bgcolor: "neutral.300",
+            color: "primary.500",
+            borderRadius: MAIN_BORDER_RADIUS
           }
         },
         [`& .${tabClasses.selected}`]: {
           color: "primary.400",
-          borderRadius: BUTTON_BORDER_RADIUS,
+          borderRadius: MAIN_BORDER_RADIUS,
           fontWeight: 600
         }
       }}

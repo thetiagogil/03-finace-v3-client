@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { MAIN_WIDTH, NAVBAR_HEIGHT } from "../../utils/constants";
+import { MAIN_BGCOLOR, MAIN_WIDTH, NAVBAR_HEIGHT } from "../../utils/constants";
 import { Navbar } from "../navigation/navbar";
 import { Flex } from "../shared/flex";
 
@@ -26,7 +26,7 @@ export const FormPageContainer = ({ children }: Props) => {
 
 export const AuthPageContainer = ({ children, hasTabs }: Props) => {
   return (
-    <Flex y fullwidth fullheight sx={{ bgcolor: "neutral.100", height: "100vh", overflow: "hidden" }}>
+    <Flex y fullwidth fullheight sx={{ bgcolor: MAIN_BGCOLOR, height: "100vh", overflow: "hidden" }}>
       <Navbar />
       <Flex x fullwidth sx={{ height: `calc(100vh - ${NAVBAR_HEIGHT}px)`, overflowX: "hidden" }}>
         <Flex
