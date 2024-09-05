@@ -5,6 +5,7 @@ import { Flex } from "../shared/flex";
 
 type Props = {
   children?: ReactNode;
+  hasTabs?: boolean;
 };
 
 export const HomePageContainer = ({ children }: Props) => {
@@ -23,7 +24,7 @@ export const FormPageContainer = ({ children }: Props) => {
   );
 };
 
-export const AuthPageContainer = ({ children }: Props) => {
+export const AuthPageContainer = ({ children, hasTabs }: Props) => {
   return (
     <Flex y fullwidth fullheight sx={{ bgcolor: "neutral.100", height: "100vh", overflow: "hidden" }}>
       <Navbar />
@@ -38,7 +39,10 @@ export const AuthPageContainer = ({ children }: Props) => {
             height: "100%"
           }}
         >
-          <Flex y sx={{ height: "100%", width: { xs: "100%", lg: MAIN_WIDTH }, mt: 2 }}>
+          <Flex
+            y
+            sx={{ height: "100%", width: { xs: "100%", lg: hasTabs ? "100%" : MAIN_WIDTH }, mt: hasTabs ? 0 : 2 }}
+          >
             {children}
           </Flex>
         </Flex>

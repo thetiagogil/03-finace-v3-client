@@ -2,7 +2,7 @@ import { Grid, Link, List, ListItem, Stack, Typography } from "@mui/joy";
 import { useContext } from "react";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth.context";
-import { BUTTON_BORDER_RADIUS, MAIN_WIDTH, SIDEBAR_WIDTH } from "../../utils/constants";
+import { BUTTON_BORDER_RADIUS, MAIN_WIDTH } from "../../utils/constants";
 import { linksArray } from "../arrays/links-array";
 import { SidebarMobile } from "../navigation/navbar-mobile";
 import { Flex } from "../shared/flex";
@@ -17,12 +17,7 @@ export const NavbarContent = () => {
         <SidebarMobile />
       </Grid>
       <Grid xs={4} lg={2}>
-        <Flex
-          x
-          yc
-          fullheight
-          sx={{ width: { xs: "100%", lg: SIDEBAR_WIDTH }, justifyContent: { xs: "center", lg: "start" } }}
-        >
+        <Flex x yc fullheight sx={{ justifyContent: { xs: "center", lg: "start" } }}>
           <Typography level="title-md">FIN/ACE</Typography>
         </Flex>
       </Grid>

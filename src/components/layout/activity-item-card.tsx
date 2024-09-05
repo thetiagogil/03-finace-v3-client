@@ -16,6 +16,7 @@ export const ActivityItemCard = ({ onClick, tx }: ActivityItemCardProps) => {
     <Stack
       onClick={onClick}
       sx={{
+        bgcolor: "neutral.50",
         width: "100%",
         flexDirection: "row",
         justifyContent: "space-between",

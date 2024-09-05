@@ -29,9 +29,9 @@ export const NavbarDropdown = () => {
           sx={{
             py: 0,
             px: 1,
-            borderRadius: BUTTON_BORDER_RADIUS,
+            borderRadius: 0,
             transition: "0.3s",
-            "&:hover": { bgcolor: "neutral.300" }
+            "&:hover": { bgcolor: "neutral.300", borderRadius: BUTTON_BORDER_RADIUS }
           }}
         >
           <Flex x xc yc>
