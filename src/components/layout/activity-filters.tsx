@@ -1,4 +1,4 @@
-import { Button, Select } from "@mui/joy";
+import { Button, Select, Typography } from "@mui/joy";
 import { useState } from "react";
 import { MAIN_BORDER_RADIUS } from "../../utils/constants";
 import { AddTxModal } from "../modals/add-tx-modal";
@@ -13,14 +13,15 @@ export const ActivityFilters = ({ userId, status }: ActivityFiltersProps) => {
   const [addTxModal, setAddTxModal] = useState(false);
   const stylesSelect = { width: { xs: "100%", sm: 200 }, borderRadius: MAIN_BORDER_RADIUS };
   return (
-    <Flex sx={{ flexDirection: { xs: "column-reverse", sm: "row" }, justifyContent: "space-between" }}>
-      <Flex gap2>
+    <Flex gap2 sx={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <Flex gap2 sx={{ width: { xs: "100%", sm: "auto" } }}>
         <Select placeholder="Mock Filter" sx={stylesSelect} />
         <Select placeholder="Mock Filter" sx={stylesSelect} />
       </Flex>
       <Flex>
         <Button onClick={() => setAddTxModal(true)} sx={{ width: { xs: "100%", sm: "auto" } }}>
-          Add activity
+          <Typography sx={{ color: "neutral.50", display: { xs: "none", sm: "block" } }}>Add Activity</Typography>
+          <Typography sx={{ color: "neutral.50", display: { xs: "block", sm: "none" } }}>+</Typography>
         </Button>
         <AddTxModal open={addTxModal} onClose={() => setAddTxModal(false)} userId={userId} status={status} />
       </Flex>
