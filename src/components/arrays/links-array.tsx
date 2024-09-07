@@ -4,11 +4,15 @@ export const linksArray = [
     path: "/dashboard"
   },
   {
-    title: "Overview",
-    path: `/overview`
-  },
-  {
     title: "Activity",
     path: "/activity"
+  },
+  {
+    title: "Budget",
+    path: "/budget"
+  },
+  {
+    title: "Insights",
+    path: `/insights`
   }
 ];

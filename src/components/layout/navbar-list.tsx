@@ -7,7 +7,7 @@ import { linksArray } from "../arrays/links-array";
 
 export const NavbarList = () => {
   const { pathname } = useLocation();
-  const { /* hasData, */ loadingData } = useContext(AuthContext);
+  const { hasData, loadingData } = useContext(AuthContext);
   return (
     <>
       {!loadingData && (
@@ -22,7 +22,7 @@ export const NavbarList = () => {
         >
           {linksArray.map((link, index) => {
             const selected = pathname.startsWith(link.path);
-            const isDisabled = link.path !== "/activity"; /* && !hasData */
+            const isDisabled = link.path !== "/activity" && !hasData;
             return (
               <ListItem
                 key={index}
