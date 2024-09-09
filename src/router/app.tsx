@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
 import { ActivityPage } from "../pages/activity.page";
 import { BudgetPage } from "../pages/budget.page";
@@ -10,7 +10,8 @@ import { LoginPage } from "../pages/login.page";
 import { SignupPage } from "../pages/signup.page";
 
 export const App = () => {
-  const { isAuthenticated, hasData } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
     <>
       {!isAuthenticated ? (
@@ -18,6 +19,7 @@ export const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       ) : (
         <Routes>
@@ -25,6 +27,7 @@ export const App = () => {
           <Route path="/activity" element={<ActivityPage />} />
           <Route path="/budget" element={<BudgetPage />} />
           <Route path="/insights" element={<InsightsPage />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       )}
     </>
