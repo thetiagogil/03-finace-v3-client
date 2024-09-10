@@ -15,7 +15,7 @@ export const BudgetPage = () => {
 
   return (
     <AuthPageContainer>
-      <Flex y gap={2} sx={{ p: 3, width: "100%" }}>
+      <Flex y gap={2} fullwidth>
         {/* Month and Year Selector */}
         <Flex x yc gap={2} sx={{ mb: 2 }}>
           <Select placeholder="Select Month" value={selectedMonth} sx={{ width: 150 }}>

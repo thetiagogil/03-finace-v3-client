@@ -5,7 +5,7 @@ import { Flex } from "../components/shared/flex";
 export const DashboardPage = () => {
   return (
     <AuthPageContainer>
-      <Flex y gap={4} sx={{ p: 3, width: "100%" }}>
+      <Flex y gap={4} fullwidth>
         {/* Monthly Summary */}
         <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
           <Typography level="h4" mb={2}>

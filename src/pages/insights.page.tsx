@@ -49,7 +49,7 @@ export const InsightsPage = () => {
 
   return (
     <AuthPageContainer>
-      <Flex y gap={3} sx={{ p: 3, width: "100%" }}>
+      <Flex y gap={3} fullwidth>
         {/* Spending Trends */}
         <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
           <Typography level="h4" mb={2}>
