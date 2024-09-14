@@ -6,7 +6,7 @@ import { capFirstLetter } from "../../utils/typo";
 import { txCategoriesArray, txTypesArray } from "../arrays/tx-array";
 import { Flex } from "../shared/flex";
 
-type AddTxModalProps = {
+type AddActivityModalProps = {
   open: boolean;
   onClose: () => void;
   userId: string;
@@ -17,7 +17,7 @@ type AddTxModalProps = {
   deleting?: boolean;
 };
 
-export const AddTxModal = ({
+export const AddActivityModal = ({
   open,
   onClose,
   userId,
@@ -26,7 +26,7 @@ export const AddTxModal = ({
   initialData,
   handleDelete,
   deleting
-}: AddTxModalProps) => {
+}: AddActivityModalProps) => {
   const [formData, setFormData] = useState({
     type: "",
     category: "",

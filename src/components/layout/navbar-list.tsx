@@ -14,10 +14,10 @@ export const NavbarList = () => {
         <List
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", lg: "row" },
-            justifyContent: { xs: "start", lg: "center" },
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: { xs: "start", md: "center" },
             py: 0,
-            gap: { xs: 1, lg: 0 }
+            gap: { xs: 1, md: 0 }
           }}
         >
           {linksArray.map((link, index) => {

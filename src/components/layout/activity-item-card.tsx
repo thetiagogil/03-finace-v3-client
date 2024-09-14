@@ -5,12 +5,17 @@ import { Flex } from "../shared/flex";
 
 type ActivityItemCardProps = {
   onClick: () => void;
-  tx: { value: number; category: string; type: string };
+  tx: { value: number; category: string; description?: string; type: string };
 };
 
 export const ActivityItemCard = ({ onClick, tx }: ActivityItemCardProps) => {
   const category = txCategoriesArray.find(cat => cat.name === tx.category);
   const Icon = category ? category.icon : null;
+  const reducedDescription = tx.description
+    ? tx.description.length > 50
+      ? `${tx.description.slice(0, 50)}...`
+      : tx.description
+    : "";
 
   return (
     <Stack
@@ -30,24 +35,24 @@ export const ActivityItemCard = ({ onClick, tx }: ActivityItemCardProps) => {
       }}
     >
       <Flex x yc gap2>
-        <Avatar
-          variant="outlined"
-          size="md"
-          sx={{
-            color: tx.type === "income" ? "#14508ccc" : "#501464cc",
-            bgcolor: tx.type === "income" ? "#14508c33" : "#50146433"
-          }}
-        >
-          {Icon && <Icon size={20} />}
-        </Avatar>
-        <Typography level="title-md">{capFirstLetter(tx.category)}</Typography>
+        <Flex x yc gap2 sx={{ minWidth: 160 }}>
+          <Avatar
+            variant="outlined"
+            size="md"
+            sx={{
+              color: tx.type === "income" ? "success.400" : "danger.400",
+              borderColor: tx.type === "income" ? "success.400" : "danger.400"
+            }}
+          >
+            {Icon && <Icon size={20} />}
+          </Avatar>
+          <Typography level="body-md">{capFirstLetter(tx.category)}</Typography>
+        </Flex>
+        <Flex sx={{ display: { xs: "none", md: "block" } }}>
+          <Typography level="body-sm">{reducedDescription}</Typography>
+        </Flex>
       </Flex>
-      <Typography
-        level="title-md"
-        sx={{ display: "flex", alignItems: "center", color: tx.type === "income" ? "#14508ccc" : "#501464cc" }}
-      >
-        {tx.type === "income" ? "+" + tx.value : "-" + tx.value}
-      </Typography>
+      <Typography level="title-md">{tx.type === "income" ? "+" + tx.value : "-" + tx.value}</Typography>
     </Stack>
   );
 };

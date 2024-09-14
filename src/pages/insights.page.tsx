@@ -39,41 +39,36 @@ export const InsightsPage = () => {
     []
   );
 
-  const chartOptions = useMemo(
-    () => ({
-      responsive: false,
-      maintainAspectRatio: false
-    }),
-    []
-  );
-
   return (
-    <AuthPageContainer>
-      <Flex y gap={3} fullwidth>
-        {/* Spending Trends */}
-        <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
-          <Typography level="h4" mb={2}>
-            Spending vs. Income Trends
-          </Typography>
-          <Line data={lineData} options={chartOptions} />
-        </Card>
+    <AuthPageContainer
+      leftChildren={
+        <Flex y gap={3} fullwidth>
+          {/* Spending Trends */}
+          <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
+            <Typography level="h4" mb={2}>
+              Spending vs. Income Trends
+            </Typography>
+            <Line data={lineData} />
+          </Card>
 
-        {/* Category Breakdown */}
-        <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
-          <Typography level="h4" mb={2}>
-            Expense Breakdown
-          </Typography>
-          <Doughnut data={doughnutData} options={chartOptions} />
-        </Card>
+          {/* Category Breakdown */}
+          <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
+            <Typography level="h4" mb={2}>
+              Expense Breakdown
+            </Typography>
+            <Doughnut data={doughnutData} />
+          </Card>
 
-        {/* Cash Flow Analysis */}
-        <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
-          <Typography level="h4" mb={2}>
-            Cash Flow Analysis
-          </Typography>
-          <Bar data={barData} options={chartOptions} />
-        </Card>
-      </Flex>
-    </AuthPageContainer>
+          {/* Cash Flow Analysis */}
+          <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
+            <Typography level="h4" mb={2}>
+              Cash Flow Analysis
+            </Typography>
+            <Bar data={barData} />
+          </Card>
+        </Flex>
+      }
+      rightChildren={<></>}
+    />
   );
 };

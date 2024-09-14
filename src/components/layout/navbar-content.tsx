@@ -7,19 +7,19 @@ import { NavbarList } from "./navbar-list";
 
 export const NavbarContent = () => {
   return (
-    <Grid container sx={{ width: MAIN_WIDTH }}>
-      <Grid xs={4} sx={{ display: { xs: "block", lg: "none" }, pl: 2 }}>
+    <Grid container sx={{ width: { xs: "100%", lg: MAIN_WIDTH } }}>
+      <Grid xs={4} sx={{ display: { xs: "block", md: "none" }, pl: 2 }}>
         <NavbarMobile />
       </Grid>
-      <Grid xs={4} lg={2}>
-        <Flex x yc fullheight sx={{ justifyContent: { xs: "center", lg: "start" } }}>
+      <Grid xs={4} md={2} sx={{ pl: { xs: 2, lg: 0 } }}>
+        <Flex x yc fullheight sx={{ justifyContent: { xs: "center", md: "start" } }}>
           <Typography level="title-md">FIN/ACE</Typography>
         </Flex>
       </Grid>
-      <Grid lg={8} sx={{ display: { xs: "none", lg: "block" } }}>
+      <Grid md={8} sx={{ display: { xs: "none", md: "block" } }}>
         <NavbarList />
       </Grid>
-      <Stack component={Grid} xs={4} lg={2} sx={{ alignItems: "end", pr: { xs: 2, lg: 0 } }}>
+      <Stack component={Grid} xs={4} md={2} sx={{ alignItems: "end", pr: { xs: 2, lg: 0 } }}>
         <NavbarDropdown />
       </Stack>
     </Grid>

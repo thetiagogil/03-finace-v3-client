@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useGetTxByStatus } from "../api/tx-api";
 import { ActivityColumn } from "../components/layout/activity-column";
-import { ActivityFilters } from "../components/layout/activity-filters";
+import { AddActivity } from "../components/layout/add-activity";
 import { AuthPageContainer } from "../components/shared/containers";
 import { Flex } from "../components/shared/flex";
 import { Loading } from "../components/shared/loading";
@@ -13,11 +13,17 @@ export const ActivityPage = () => {
   const isLoading = transactionsLoading;
 
   return (
-    <AuthPageContainer>
-      <Flex y gap3>
-        <ActivityFilters userId={userId} status="tracked" />
-        {isLoading ? <Loading /> : <ActivityColumn transactions={transactions} />}
-      </Flex>
-    </AuthPageContainer>
+    <AuthPageContainer
+      leftChildren={
+        <Flex y gap3>
+          {isLoading ? <Loading /> : <ActivityColumn transactions={transactions} />}
+        </Flex>
+      }
+      rightChildren={
+        <Flex y gap2>
+          <AddActivity userId={userId} status="tracked" />
+        </Flex>
+      }
+    />
   );
 };

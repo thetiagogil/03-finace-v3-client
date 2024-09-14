@@ -5,7 +5,7 @@ import { Flex } from "../shared/flex";
 
 export const Navbar = () => {
   return (
-    <Flex y>
+    <Flex component={"nav"} y>
       <Flex x xc yc sx={{ height: NAVBAR_HEIGHT }}>
         <NavbarContent />
       </Flex>
