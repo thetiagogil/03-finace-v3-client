@@ -1,4 +1,5 @@
 import { Button, Card, Divider, Typography } from "@mui/joy";
+import { ComponentTitle } from "../components/shared/component-title";
 import { AuthPageContainer } from "../components/shared/containers";
 import { Flex } from "../components/shared/flex";
 
@@ -7,6 +8,7 @@ export const DashboardPage = () => {
     <AuthPageContainer
       leftChildren={
         <Flex y gap={4} fullwidth>
+          <ComponentTitle title="Dashboard" />
           {/* Monthly Summary */}
           <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
             <Typography level="h4" mb={2}>

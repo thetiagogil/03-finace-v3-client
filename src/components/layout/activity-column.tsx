@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDeleteTxById } from "../../api/tx-api";
 import { TxModel } from "../../models/tx.model";
 import { AddActivityModal } from "../modals/add-activity-modal";
+import { ComponentTitle } from "../shared/component-title";
 import { Flex } from "../shared/flex";
 import { ActivityFilters } from "./activity-filters";
 import { ActivityItemCard } from "./activity-item-card";
@@ -39,7 +40,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
 
   return (
     <>
-      <Typography sx={{ fontSize: 24, fontWeight: 600 }}>Activity</Typography>
+      <ComponentTitle title="Activity" />
       <ActivityFilters />
       {hasData && (
         <Flex>

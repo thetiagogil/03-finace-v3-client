@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ActivityFilters } from "../components/layout/activity-filters";
 import { AddActivity } from "../components/layout/add-activity";
 import { BudgetColumn } from "../components/layout/budget-column";
 import { AuthPageContainer } from "../components/shared/containers";
@@ -12,7 +11,6 @@ export const BudgetPage = () => {
     <AuthPageContainer
       leftChildren={
         <Flex y gap2>
-          <ActivityFilters />
           <BudgetColumn />
         </Flex>
       }
