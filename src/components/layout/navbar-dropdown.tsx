@@ -5,7 +5,7 @@ import { IoPersonCircle } from "react-icons/io5";
 import { PiSignOutThin, PiUserThin } from "react-icons/pi";
 import { AuthContext } from "../../contexts/auth.context";
 import { MAIN_BORDER_RADIUS } from "../../utils/constants";
-import { ProfileDrawer } from "../navigation/profile-drawer";
+import { ProfileDrawer } from "./profile-drawer";
 import { Flex } from "../shared/flex";
 
 type CallbackProps = {
