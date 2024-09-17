@@ -1,16 +1,16 @@
 import { Link, List, ListItem } from "@mui/joy";
 import { useContext } from "react";
 import { Link as ReactLink, useLocation } from "react-router-dom";
-import { AuthContext } from "../../contexts/auth.context";
+import { InfoContext } from "../../contexts/info.context";
 import { MAIN_BORDER_RADIUS } from "../../utils/constants";
 import { linksArray } from "../arrays/links-array";
 
 export const NavbarList = () => {
   const { pathname } = useLocation();
-  const { hasData, loadingData } = useContext(AuthContext);
+  const { userHasData, loadingUserHasData } = useContext(InfoContext);
   return (
     <>
-      {!loadingData && (
+      {!loadingUserHasData && (
         <List
           sx={{
             display: "flex",
@@ -22,7 +22,7 @@ export const NavbarList = () => {
         >
           {linksArray.map((link, index) => {
             const selected = pathname.startsWith(link.path);
-            const isDisabled = link.path !== "/activity" && !hasData;
+            const isDisabled = link.path !== "/activity" && !userHasData;
             return (
               <ListItem
                 key={index}

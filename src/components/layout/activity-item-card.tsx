@@ -1,4 +1,6 @@
 import { Avatar, Stack, Typography } from "@mui/joy";
+import { useContext } from "react";
+import { InfoContext } from "../../contexts/info.context";
 import { capFirstLetter } from "../../utils/typo";
 import { txCategoriesArray } from "../arrays/tx-array";
 import { Flex } from "../shared/flex";
@@ -9,6 +11,7 @@ type ActivityItemCardProps = {
 };
 
 export const ActivityItemCard = ({ onClick, tx }: ActivityItemCardProps) => {
+  const { userCurrencySymbol } = useContext(InfoContext);
   const category = txCategoriesArray.find(cat => cat.name === tx.category);
   const Icon = category ? category.icon : null;
   const reducedDescription = tx.description
@@ -52,7 +55,7 @@ export const ActivityItemCard = ({ onClick, tx }: ActivityItemCardProps) => {
           <Typography level="body-sm">{reducedDescription}</Typography>
         </Flex>
       </Flex>
-      <Typography level="title-md">{tx.type === "income" ? "+" + tx.value : "-" + tx.value}</Typography>
+      <Typography level="title-md">{userCurrencySymbol + tx.value}</Typography>
     </Stack>
   );
 };
