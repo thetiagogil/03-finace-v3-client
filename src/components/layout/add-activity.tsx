@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/joy";
 import { useState } from "react";
-import { AddActivityModal } from "../modals/add-activity-modal";
+import { AddEditActivityModal } from "../modals/add-edit-activity-modal";
 import { Flex } from "../shared/flex";
 
 type AddActivityProps = {
@@ -15,7 +15,7 @@ export const AddActivity = ({ userId, status }: AddActivityProps) => {
       <Button onClick={() => setAddTxModal(true)} sx={{ width: { xs: "100%", md: "auto" } }}>
         <Typography sx={{ color: "neutral.50" }}>Add Activity</Typography>
       </Button>
-      <AddActivityModal open={addTxModal} onClose={() => setAddTxModal(false)} userId={userId} status={status} />
+      <AddEditActivityModal open={addTxModal} onClose={() => setAddTxModal(false)} userId={userId} status={status} />
     </Flex>
   );
 };

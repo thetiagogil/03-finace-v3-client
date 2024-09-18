@@ -1,7 +1,7 @@
 import { Button, Select, Typography } from "@mui/joy";
 import { useState } from "react";
 import { MAIN_BORDER_RADIUS } from "../../utils/constants";
-import { AddTxModal } from "../modals/add-activity-modal";
+import { AddTxModal } from "../modals/add-edit-activity-modal";
 import { Flex } from "../shared/flex";
 
 type BudgetFiltersProps = {

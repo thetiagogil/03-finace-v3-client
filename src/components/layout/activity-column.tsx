@@ -2,7 +2,7 @@ import { Divider, Typography } from "@mui/joy";
 import { useState } from "react";
 import { useDeleteTxById } from "../../api/tx-api";
 import { TxModel } from "../../models/tx.model";
-import { AddActivityModal } from "../modals/add-activity-modal";
+import { AddActivityModal } from "../modals/add-edit-activity-modal";
 import { ComponentTitle } from "../shared/component-title";
 import { Flex } from "../shared/flex";
 import { ActivityFilters } from "./activity-filters";

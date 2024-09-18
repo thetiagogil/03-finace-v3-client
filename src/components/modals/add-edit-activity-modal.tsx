@@ -17,7 +17,7 @@ type AddActivityModalProps = {
   deleting?: boolean;
 };
 
-export const AddActivityModal = ({
+export const AddEditActivityModal = ({
   open,
   onClose,
   userId,
