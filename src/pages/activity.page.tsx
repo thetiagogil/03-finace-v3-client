@@ -6,11 +6,13 @@ import { AuthPageContainer } from "../components/shared/containers";
 import { Flex } from "../components/shared/flex";
 import { Loading } from "../components/shared/loading";
 import { AuthContext } from "../contexts/auth.context";
+import { InfoContext } from "../contexts/info.context";
 
 export const ActivityPage = () => {
   const { userId } = useContext(AuthContext);
+  const { loadingUserData } = useContext(InfoContext);
   const { data: transactions, loading: transactionsLoading } = useGetTxByStatus({ userId, status: "tracked" });
-  const isLoading = transactionsLoading;
+  const isLoading = loadingUserData || transactionsLoading;
 
   return (
     <AuthPageContainer

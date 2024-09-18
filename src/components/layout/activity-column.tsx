@@ -1,8 +1,9 @@
 import { Divider, Typography } from "@mui/joy";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDeleteTxById } from "../../api/tx-api";
+import { InfoContext } from "../../contexts/info.context";
 import { TxModel } from "../../models/tx.model";
-import { AddActivityModal } from "../modals/add-edit-activity-modal";
+import { AddEditActivityModal } from "../modals/add-edit-activity-modal";
 import { ComponentTitle } from "../shared/component-title";
 import { Flex } from "../shared/flex";
 import { ActivityFilters } from "./activity-filters";
@@ -13,7 +14,7 @@ type ActivityTableProps = {
 };
 
 export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
-  const hasData = transactions && transactions.length > 0;
+  const { userHasData } = useContext(InfoContext);
   const { deleteTxById, loading: deleting } = useDeleteTxById();
   const [editTxModal, setEditTxModal] = useState(false);
   const [currentTx, setCurrentTx] = useState<TxModel | null>(null);
@@ -42,7 +43,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
     <>
       <ComponentTitle title="Activity" />
       <ActivityFilters />
-      {hasData && (
+      {userHasData && (
         <Flex>
           <Flex y fullwidth gap3>
             {Object.entries(groupedTransactions).map(([date, transactionsArray]) => (
@@ -61,7 +62,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
               </Flex>
             ))}
             {currentTx && (
-              <AddActivityModal
+              <AddEditActivityModal
                 open={editTxModal}
                 onClose={() => setEditTxModal(false)}
                 userId={currentTx.user_id}
