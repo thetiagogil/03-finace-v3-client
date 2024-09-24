@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useGetYearCategorySummary } from "../api/years-api";
-import { AddActivity } from "../components/layout/add-activity";
+import { AddEditTx } from "../components/layout/add-tx";
 import { BudgetColumn } from "../components/layout/budget-column";
 import { AuthPageContainer } from "../components/shared/containers";
 import { Flex } from "../components/shared/flex";
@@ -26,7 +26,7 @@ export const BudgetPage = () => {
       }
       rightChildren={
         <Flex y gap2>
-          <AddActivity userId={userId} status="tracked" />
+          <AddEditTx userId={userId} status="tracked" />
         </Flex>
       }
     />

@@ -5,12 +5,12 @@ import { capFirstLetter } from "../../utils/typo";
 import { txCategoriesArray } from "../arrays/tx-array";
 import { Flex } from "../shared/flex";
 
-type ActivityItemCardProps = {
+type TxItemCardProps = {
   onClick: () => void;
   tx: { value: number; category: string; description?: string; type: string };
 };
 
-export const ActivityItemCard = ({ onClick, tx }: ActivityItemCardProps) => {
+export const TxItemCard = ({ onClick, tx }: TxItemCardProps) => {
   const { userCurrencySymbol } = useContext(InfoContext);
   const category = txCategoriesArray.find(cat => cat.name === tx.category);
   const Icon = category ? category.icon : null;

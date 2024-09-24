@@ -4,8 +4,8 @@ export const linksArray = [
     path: "/dashboard"
   },
   {
-    title: "Activity",
-    path: "/activity"
+    title: "Transactions",
+    path: "/transactions"
   },
   {
     title: "Budget",

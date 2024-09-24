@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
-import { ActivityPage } from "../pages/activity.page";
 import { BudgetPage } from "../pages/budget.page";
 import { DashboardPage } from "../pages/dashboard.page";
 import { HomePage } from "../pages/home.page";
 import { InsightsPage } from "../pages/insights.page";
 import { LoginPage } from "../pages/login.page";
 import { SignupPage } from "../pages/signup.page";
+import { TransactionsPage } from "../pages/transactions.page";
 
 export const App = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -24,7 +24,7 @@ export const App = () => {
       ) : (
         <Routes>
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/activity" element={<ActivityPage />} />
+          <Route path="/transactions" element={<TransactionsPage />} />
           <Route path="/budget" element={<BudgetPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />

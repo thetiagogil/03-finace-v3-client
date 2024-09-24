@@ -3,17 +3,17 @@ import { useContext, useState } from "react";
 import { useDeleteTxById } from "../../api/tx-api";
 import { InfoContext } from "../../contexts/info.context";
 import { TxModel } from "../../models/tx.model";
-import { AddEditActivityModal } from "../modals/add-edit-activity-modal";
+import { AddEditTxModal } from "../modals/add-edit-tx-modal";
 import { ComponentTitle } from "../shared/component-title";
 import { Flex } from "../shared/flex";
-import { ActivityFilters } from "./activity-filters";
-import { ActivityItemCard } from "./activity-item-card";
+import { TxFilters } from "./tx-filters";
+import { TxItemCard } from "./tx-item-card";
 
-type ActivityTableProps = {
+type TxTableProps = {
   transactions: TxModel[];
 };
 
-export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
+export const TxColumn = ({ transactions }: TxTableProps) => {
   const { userHasData } = useContext(InfoContext);
   const { deleteTxById, loading: deleting } = useDeleteTxById();
   const [editTxModal, setEditTxModal] = useState(false);
@@ -41,8 +41,8 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
 
   return (
     <>
-      <ComponentTitle title="Activity" />
-      <ActivityFilters />
+      <ComponentTitle title="Transactions" />
+      <TxFilters />
       {userHasData && (
         <Flex>
           <Flex y fullwidth gap3>
@@ -54,7 +54,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
                 <Flex y sx={{ border: "1px solid", borderColor: "neutral.300", borderRadius: 4 }}>
                   {transactionsArray.map((tx: TxModel, index: number) => (
                     <Flex y key={index}>
-                      <ActivityItemCard onClick={() => handleEdit(tx)} tx={tx} />
+                      <TxItemCard onClick={() => handleEdit(tx)} tx={tx} />
                       {index < transactionsArray.length - 1 && <Divider orientation="horizontal" sx={{ mx: 2 }} />}
                     </Flex>
                   ))}
@@ -62,7 +62,7 @@ export const ActivityColumn = ({ transactions }: ActivityTableProps) => {
               </Flex>
             ))}
             {currentTx && (
-              <AddEditActivityModal
+              <AddEditTxModal
                 open={editTxModal}
                 onClose={() => setEditTxModal(false)}
                 userId={currentTx.user_id}

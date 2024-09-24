@@ -1,7 +1,7 @@
 import { Button, Select, Typography } from "@mui/joy";
 import { useState } from "react";
 import { MAIN_BORDER_RADIUS } from "../../utils/constants";
-import { AddTxModal } from "../modals/add-edit-activity-modal";
+import { AddEditTxModal } from "../modals/add-edit-tx-modal";
 import { Flex } from "../shared/flex";
 
 type BudgetFiltersProps = {
@@ -20,10 +20,10 @@ export const BudgetFilters = ({ userId, status }: BudgetFiltersProps) => {
       </Flex>
       <Flex>
         <Button onClick={() => setAddTxModal(true)} sx={{ width: { xs: "100%", sm: "auto" } }}>
-          <Typography sx={{ color: "neutral.50", display: { xs: "none", sm: "block" } }}>Add Activity</Typography>
+          <Typography sx={{ color: "neutral.50", display: { xs: "none", sm: "block" } }}>Add Budget</Typography>
           <Typography sx={{ color: "neutral.50", display: { xs: "block", sm: "none" } }}>+</Typography>
         </Button>
-        <AddTxModal open={addTxModal} onClose={() => setAddTxModal(false)} userId={userId} status={status} />
+        <AddEditTxModal open={addTxModal} onClose={() => setAddTxModal(false)} userId={userId} status={status} />
       </Flex>
     </Flex>
   );

@@ -22,7 +22,7 @@ export const NavbarList = () => {
         >
           {linksArray.map((link, index) => {
             const selected = pathname.startsWith(link.path);
-            const isDisabled = link.path !== "/activity" && !userHasData;
+            const isDisabled = link.path !== "/transactions" && !userHasData;
             return (
               <ListItem
                 key={index}

@@ -56,10 +56,10 @@ export const DashboardPage = () => {
             </Flex>
           </Card>
 
-          {/* Recent Activity Feed */}
+          {/* Recent Transaction Feed */}
           <Card variant="outlined" sx={{ p: 3, borderRadius: "md" }}>
             <Typography level="h4" mb={2}>
-              Recent Activity
+              Recent Transaction
             </Typography>
             {/* Here you can add a component to render a list of recent transactions with filters */}
             <Flex y gap={1}>
